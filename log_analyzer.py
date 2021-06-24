@@ -7,7 +7,7 @@ import numpy as np # referência a numpy
 
 import matplotlib.pyplot as plt # apelido para encurtar o nome na chamada
 
-log = read_csv("logs/dv_driving_dynamics.tsv", delimiter ="/")
+log = read_csv("dv_driving_dynamics.tsv", delimiter ="/")
 
 # print(log)
 
@@ -36,17 +36,17 @@ def analyze_metric(metric_name, color):
     plt.ylabel(metric_name)
 
     # Marcar max, média e o desvio padrao, linhas horizontais
-    xdata = list(range(16))
+    xdata = list(range(500))
     ydata = [_*2 for _ in xdata]
 
-    plt.hlines(y=metric_max, xmin=0, xmax=16, color='b')
-    plt.hlines(y=metric_mean, xmin=0, xmax=16, color='g')
-    plt.hlines(y=metric_stdev, xmin=0, xmax=16, color='#000000')
+    plt.hlines(y=metric_max, xmin=0, xmax=500, color='b')
+    plt.hlines(y=metric_mean, xmin=0, xmax=500, color='g')
+    plt.hlines(y=metric_stdev, xmin=0, xmax=500, color='#000000')
 
     plt.grid()
     plt.show()
 
-    # Pegando todos os valores calculados acima e organizando num dicinário
+    # Pegando todos os valores calculados acima e organizando num dicionário
     return {
         "min": metric_min,
         "max": metric_max,
